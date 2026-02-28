@@ -15,14 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Handle fake form submission for now
-  // Real submission to Formspree will happen normally once user swaps action URL
+  // Handle form submission via AJAX to Formspree
   form.addEventListener('submit', async (e) => {
-    // If testing without a real endpoint, we can prevent default and show message
-    // e.preventDefault();
+    e.preventDefault();
     
-    // For now we will allow normal submission, but user has to set the action.
-    // Let's add submit animation logic
     const btn = form.querySelector('.submit-btn');
     const originalText = btn.innerHTML;
     
@@ -30,12 +26,33 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.style.opacity = '0.8';
     btn.disabled = true;
 
-    // Simulate network delay if preventDefault was used
-    // setTimeout(() => {
-    //   form.classList.add('hidden');
-    //   formMessage.classList.remove('hidden');
-    //   triggerConfettiVFX();
-    // }, 1500);
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        form.classList.add('hidden');
+        formMessage.classList.remove('hidden');
+        // Extra burst of confetti on success
+        for(let i=0; i<30; i++) {
+          setTimeout(createConfetti, i * 40);
+        }
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert("Oops! There was a problem submitting your RSVP. Please try again.");
+      btn.innerHTML = originalText;
+      btn.style.opacity = '1';
+      btn.disabled = false;
+    }
   });
 
   // Confetti Animation Logic

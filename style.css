@@ -146,7 +146,7 @@ body {
   font-size: 2.5rem;
   font-weight: 800;
   color: #fff;
-  text-shadow: 0 0 10px rgba(255, 107, 158, 0.8), 0 0 20px rgba(255, 107, 158, 0.5);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 15px rgba(255, 107, 158, 0.9), 0 0 25px rgba(255, 107, 158, 0.6);
   margin-bottom: 10px;
   line-height: 1.1;
   letter-spacing: -0.5px;
@@ -183,9 +183,22 @@ h2 {
 }
 
 .detail-item .icon {
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: var(--glass-bg);
+  border-radius: 50%;
   margin-right: 16px;
-  line-height: 1;
+  flex-shrink: 0;
+  color: var(--color-primary);
+  box-shadow: 0 0 15px rgba(255, 107, 158, 0.3);
+}
+
+.detail-item .icon svg {
+  width: 24px;
+  height: 24px;
 }
 
 .detail-item .text strong {
