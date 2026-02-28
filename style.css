@@ -28,19 +28,17 @@
 }
 
 html {
-  min-height: -webkit-fill-available;
+  background-color: #10002b;
 }
 
 body {
   font-family: var(--font-family);
-  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+  background-color: transparent;
   color: var(--color-text);
   min-height: 100vh;
   min-height: 100dvh;
-  min-height: -webkit-fill-available;
   display: flex;
   justify-content: center;
-  overflow-x: hidden;
   position: relative;
   /* Mobile first core styling */
   padding: 20px 15px;
@@ -56,11 +54,15 @@ body {
   width: 100%;
   height: 100%;
   z-index: -2;
-  background:
-    radial-gradient(circle at 15% 50%, rgba(255, 107, 158, 0.15), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(157, 78, 221, 0.15), transparent 25%),
-    radial-gradient(circle at 50% 80%, rgba(0, 245, 212, 0.1), transparent 20%);
+  background-color: #10002b;
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(255, 107, 158, 0.2), rgba(255, 107, 158, 0) 30%),
+    radial-gradient(circle at 85% 30%, rgba(157, 78, 221, 0.2), rgba(157, 78, 221, 0) 30%),
+    radial-gradient(circle at 50% 80%, rgba(0, 245, 212, 0.15), rgba(0, 245, 212, 0) 25%),
+    linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
   animation: bgBreathing 10s ease-in-out infinite alternate;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes bgBreathing {
