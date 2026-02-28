@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harshini is turning 9!</title>
+    <!-- Google Fonts: Outfit for a modern, cute look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <div class="background-animation"></div>
+    <div class="confetti-container" id="confetti"></div>
+
+    <main class="container">
+      <header class="hero glass-panel">
+        <div class="shine-effect"></div>
+        <h1 class="glow-text">Harshini is turning 9!</h1>
+        <p class="subtitle">Join us for a Teenieping Laser Tag Party!</p>
+      </header>
+
+      <section class="details glass-panel">
+        <div class="shine-effect"></div>
+        <h2>Party Details</h2>
+        <div class="detail-item">
+          <span class="icon">📅</span>
+          <div class="text">
+            <strong>Date</strong>
+            <p>March 20th</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="icon">⏰</span>
+          <div class="text">
+            <strong>Time</strong>
+            <p>18:00 - 19:15</p>
+          </div>
+        </div>
+        <div class="detail-item">
+          <span class="icon">📍</span>
+          <div class="text">
+            <strong>Location</strong>
+            <p>Laser Station, Unit 3,<br>Fountain Park, 130 Dundee St,<br>Edinburgh EH11 1AF</p>
+            <a href="https://maps.google.com/?q=Laser+Station+Fountain+Park+Edinburgh" target="_blank" class="map-link">Open in Maps</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="rsvp glass-panel">
+        <div class="shine-effect"></div>
+        <h2>RSVP Form</h2>
+        <!-- Formspree endpoint (User will need to replace this later, using a dummy for now to show UI) -->
+        <form id="rsvpForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="parentName">Parent/Guardian Name</label>
+            <input type="text" id="parentName" name="parentName" required placeholder="e.g. Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="childName">Child's Name</label>
+            <input type="text" id="childName" name="childName" required placeholder="e.g. Sarah">
+          </div>
+          <div class="form-group">
+            <label for="attending">Will you be attending?</label>
+            <select id="attending" name="attending" required>
+              <option value="" disabled selected>Please select</option>
+              <option value="Yes">Yes, we'll be there!</option>
+              <option value="No">Sorry, we can't make it</option>
+            </select>
+          </div>
+          <div class="form-group" id="guestsGroup">
+            <label for="guests">Number of children attending</label>
+            <input type="number" id="guests" name="guests" min="1" max="5" value="1">
+          </div>
+          <div class="form-group">
+            <label for="allergies">Food Allergies / Dietary Requirements</label>
+            <textarea id="allergies" name="allergies" rows="3" placeholder="Please list any allergies here..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn glow-btn">Send RSVP 💖</button>
+        </form>
+        <div id="formMessage" class="form-message hidden">
+          Thanks for RSVPing! ✨
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
