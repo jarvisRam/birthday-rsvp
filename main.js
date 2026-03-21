@@ -74,6 +74,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }, animationDuration * 1000);
   }
 
+  // Modal Logic
+  const modal = document.getElementById('thankYouModal');
+  const closeModalBtn = document.getElementById('closeModal');
+
+  if (modal && closeModalBtn) {
+    // Show modal on load
+    modal.classList.remove('modal-hidden');
+
+    // Close modal on button click
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.add('modal-hidden');
+    });
+
+    // Close modal on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.add('modal-hidden');
+      }
+    });
+  }
+
   // Continuous background confetti
   setInterval(createConfetti, 300);
 
