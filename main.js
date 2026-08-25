@@ -1,53 +1,57 @@
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('rsvpForm');
-  const attendingSelect = document.getElementById('attending');
-  // Interactive Form Logic - Guests logic removed since siblings are no longer invited
-  // Form submission handling
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const formMessage = document.getElementById('formMessage');
 
-    const btn = form.querySelector('.submit-btn');
-    const originalText = btn.innerHTML;
+  // The gallery page shares this script but has no RSVP form, so guard before binding
+  if (form && formMessage) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    btn.innerHTML = 'Sending... ✨';
-    btn.style.opacity = '0.8';
-    btn.disabled = true;
+      const btn = form.querySelector('.submit-btn');
+      const originalText = btn.innerHTML;
 
-    try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
+      btn.innerHTML = 'Revving up... 🏎️';
+      btn.style.opacity = '0.8';
+      btn.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.classList.add('hidden');
+          formMessage.classList.remove('hidden');
+          // Chequered-flag burst on success
+          for (let i = 0; i < 30; i++) {
+            setTimeout(createConfetti, i * 40);
+          }
+        } else {
+          throw new Error('Network response was not ok');
         }
-      });
-
-      if (response.ok) {
-        form.classList.add('hidden');
-        formMessage.classList.remove('hidden');
-        // Extra burst of confetti on success
-        for (let i = 0; i < 30; i++) {
-          setTimeout(createConfetti, i * 40);
-        }
-      } else {
-        throw new Error('Network response was not ok');
+      } catch (error) {
+        console.error('Error submitting form:', error);
+        alert("Oops! There was a problem submitting your RSVP. Please try again.");
+        btn.innerHTML = originalText;
+        btn.style.opacity = '1';
+        btn.disabled = false;
       }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      alert("Oops! There was a problem submitting your RSVP. Please try again.");
-      btn.innerHTML = originalText;
-      btn.style.opacity = '1';
-      btn.disabled = false;
-    }
-  });
+    });
+  }
 
-  // Confetti Animation Logic
+  // Confetti Animation Logic - Piston Cup colours
   const confettiContainer = document.getElementById('confetti');
-  const colors = ['#ff6b9e', '#9d4edd', '#00f5d4', '#ffffff', '#ff99c2'];
+  const colors = ['#e01b24', '#f7b500', '#ffd23f', '#ffffff', '#c9ced6'];
 
   function createConfetti() {
+    if (!confettiContainer) return;
+
     const confetti = document.createElement('div');
     confetti.classList.add('confetti');
 
@@ -74,26 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, animationDuration * 1000);
   }
 
-  // Modal Logic
-  const modal = document.getElementById('thankYouModal');
-  const closeModalBtn = document.getElementById('closeModal');
-
-  if (modal && closeModalBtn) {
-    // Show modal on load
-    modal.classList.remove('modal-hidden');
-
-    // Close modal on button click
-    closeModalBtn.addEventListener('click', () => {
-      modal.classList.add('modal-hidden');
-    });
-
-    // Close modal on background click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.classList.add('modal-hidden');
-      }
-    });
-  }
+  // Skip the ambient animation for users who prefer reduced motion
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   // Continuous background confetti
   setInterval(createConfetti, 300);
