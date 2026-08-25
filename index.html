@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Harshini is turning 9!</title>
-  <!-- Google Fonts: Outfit for a modern, cute look -->
+  <title>Aadhvik is turning 5! 🏁</title>
+  <meta name="description"
+    content="You're invited to Aadhvik's 5th Birthday Race — Saturday 29th August, 15:30 at Conifox Kids Adventure Park, Kirkliston." />
+  <!-- Google Fonts: Racing Sans One for headline speed, Outfit for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Racing+Sans+One&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 
@@ -19,21 +23,14 @@
   <main class="container">
     <header class="hero glass-panel">
       <div class="shine-effect"></div>
-      <img src="/hero-image.png" alt="Harshini's 9th Birthday Adventure" class="hero-image" />
+      <img src="/hero-image.jpg" alt="Aadhvik's 5th Birthday Race — Saturday 29th August, Conifox Kids Adventure Park"
+        class="hero-image" />
+      <div class="checkered-strip" aria-hidden="true"></div>
     </header>
-
-    <section class="gallery-banner glass-panel">
-      <div class="shine-effect"></div>
-      <div class="banner-content">
-        <h2>The Party was a Blast! 🥳</h2>
-        <p>Thank you to everyone who made Harshini's 9th birthday so special. Check out the photos and videos from the celebration!</p>
-        <a href="/gallery.html" class="gallery-btn-small glow-btn">✨ View Party Gallery ✨</a>
-      </div>
-    </section>
 
     <section class="details glass-panel">
       <div class="shine-effect"></div>
-      <h2>Party Details</h2>
+      <h2>🏁 Race Details</h2>
       <div class="detail-item">
         <span class="icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -46,7 +43,7 @@
         </span>
         <div class="text">
           <strong>Date</strong>
-          <p>March 20th</p>
+          <p>Saturday, 29th August</p>
         </div>
       </div>
       <div class="detail-item">
@@ -59,7 +56,7 @@
         </span>
         <div class="text">
           <strong>Time</strong>
-          <p>18:00 - 19:15</p>
+          <p>15:30 - 17:00</p>
         </div>
       </div>
       <div class="detail-item">
@@ -71,29 +68,29 @@
           </svg>
         </span>
         <div class="text">
-          <strong>Location</strong>
-          <p>Laser Station, Unit 3,<br>Fountain Park, 130 Dundee St,<br>Edinburgh EH11 1AF</p>
-          <a href="https://maps.google.com/?q=Laser+Station+Fountain+Park+Edinburgh" target="_blank"
-            class="map-link">Open in Maps</a>
+          <strong>Start Line</strong>
+          <p>Conifox Kids Adventure Park,<br>Kirkliston,<br>EH29 9ER</p>
+          <a href="https://maps.google.com/?q=Conifox+Adventure+Park+Kirkliston+EH29+9ER" target="_blank"
+            rel="noopener" class="map-link">Open in Maps</a>
         </div>
       </div>
     </section>
 
     <section class="rsvp glass-panel">
       <div class="shine-effect"></div>
-      <h2>RSVP Form</h2>
+      <h2>🏎️ Join the Race</h2>
       <!-- Formspree endpoint -->
-      <form id="rsvpForm" action="https://formspree.io/f/xwvnzdgv" method="POST">
+      <form id="rsvpForm" action="https://formspree.io/f/meajbgzp" method="POST">
         <div class="form-group">
           <label for="parentName">Parent/Guardian Name</label>
           <input type="text" id="parentName" name="parentName" required placeholder="e.g. Jane Doe">
         </div>
         <div class="form-group">
-          <label for="childName">Child's Name</label>
+          <label for="childName">Racer's Name</label>
           <input type="text" id="childName" name="childName" required placeholder="e.g. Sarah">
         </div>
         <div class="form-group">
-          <label for="attending">Will you be attending?</label>
+          <label for="attending">Will you be on the grid?</label>
           <select id="attending" name="attending" required>
             <option value="" disabled selected>Please select</option>
             <option value="Yes">Yes, we'll be there!</option>
@@ -102,33 +99,20 @@
         </div>
         <div class="form-group">
           <label for="allergies">Food Allergies / Dietary Requirements</label>
-          <p class="food-note">Note: Food included is 2 Slices of Pizza & Fries, Ice Cream for Dessert & Unlimited Jugs
-            of Squash.</p>
+          <div class="food-note">
+            <p><strong>Fuel for the racers:</strong> Margherita pizza, cheese &amp; onion rolls,
+              mozzarella dippers, fries, fruit salad, veggie sticks &amp; crisps.</p>
+            <p><strong>For the pit crew:</strong> a vegetarian sandwich platter for accompanying adults.</p>
+          </div>
           <textarea id="allergies" name="allergies" rows="3" placeholder="Please list any allergies here..."></textarea>
         </div>
-        <button type="submit" class="submit-btn glow-btn">Send RSVP 💖</button>
+        <button type="submit" class="submit-btn glow-btn">Send RSVP 🏁</button>
       </form>
       <div id="formMessage" class="form-message hidden">
-        Thanks for RSVPing! ✨
+        You're on the grid! See you at the start line 🏁
       </div>
     </section>
   </main>
-
-  <!-- Thank You Modal -->
-  <div id="thankYouModal" class="modal-overlay modal-hidden">
-    <div class="modal-content glass-panel">
-      <div class="shine-effect"></div>
-      <div class="modal-header">
-        <h2>Thank You for Coming! 💖</h2>
-      </div>
-      <div class="modal-body">
-        <img src="/gallery/IMG_3457.jpg" alt="Harshini's 9th Birthday" class="featured-photo">
-        <p>A huge thank you to everyone who joined us for Harshini's 9th Birthday! It was so special to have you all there to celebrate. We hope you had as much fun as we did!</p>
-        <a href="/gallery.html" class="gallery-btn glow-btn">✨ View Party Gallery ✨</a>
-      </div>
-      <button id="closeModal" class="close-btn">&times;</button>
-    </div>
-  </div>
 
   <script type="module" src="/main.js"></script>
 </body>

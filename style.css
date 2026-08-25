@@ -1,23 +1,29 @@
 :root {
-  /* Teenieping Pink & Laser Tag Neon Theme */
-  --color-primary: #ff6b9e;
-  /* Heartsping pink */
-  --color-primary-dark: #d83a72;
-  --color-secondary: #9d4edd;
-  /* Neon purple for laser tag vibe */
-  --color-accent: #00f5d4;
-  /* Neon cyan for laser beams */
-  --color-bg-start: #240046;
-  /* Deep space/laser arena dark purple */
-  --color-bg-end: #10002b;
+  /* Cars / Piston Cup Racing Theme */
+  --color-primary: #e01b24;
+  /* Lightning McQueen red */
+  --color-primary-dark: #a4161a;
+  --color-secondary: #f7b500;
+  /* Piston Cup gold */
+  --color-accent: #ffd23f;
+  /* Racing yellow */
+  --color-storm: #2b3a55;
+  /* Jackson Storm navy */
+  --color-chrome: #c9ced6;
+  /* Chrome trim */
+  --color-bg-start: #1f242b;
+  /* Asphalt grey */
+  --color-bg-end: #0b0d10;
+  /* Night track */
   --color-text: #ffffff;
-  --color-text-muted: #e0e0e0;
+  --color-text-muted: #d7dbe0;
 
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(201, 206, 214, 0.28);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55);
 
   --font-family: 'Outfit', sans-serif;
+  --font-display: 'Racing Sans One', 'Outfit', sans-serif;
 }
 
 * {
@@ -28,7 +34,7 @@
 }
 
 html {
-  background-color: #10002b;
+  background-color: #0b0d10;
 }
 
 body {
@@ -54,11 +60,11 @@ body {
   width: 100%;
   height: 100%;
   z-index: -2;
-  background-color: #10002b;
+  background-color: #0b0d10;
   background-image:
-    radial-gradient(circle at 15% 50%, rgba(255, 107, 158, 0.2), rgba(255, 107, 158, 0) 30%),
-    radial-gradient(circle at 85% 30%, rgba(157, 78, 221, 0.2), rgba(157, 78, 221, 0) 30%),
-    radial-gradient(circle at 50% 80%, rgba(0, 245, 212, 0.15), rgba(0, 245, 212, 0) 25%),
+    radial-gradient(circle at 15% 50%, rgba(224, 27, 36, 0.2), rgba(224, 27, 36, 0) 30%),
+    radial-gradient(circle at 85% 30%, rgba(247, 181, 0, 0.2), rgba(247, 181, 0, 0) 30%),
+    radial-gradient(circle at 50% 80%, rgba(255, 210, 63, 0.15), rgba(255, 210, 63, 0) 25%),
     linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
   animation: bgBreathing 10s ease-in-out infinite alternate;
   -webkit-transform: translate3d(0, 0, 0);
@@ -90,8 +96,8 @@ body {
   width: 8px;
   height: 8px;
   background-color: var(--color-primary);
-  opacity: 0.6;
-  border-radius: 50%;
+  opacity: 0.75;
+  border-radius: 2px;
   animation: fall linear forwards;
 }
 
@@ -192,27 +198,30 @@ body {
 /* Hero Section */
 .hero {
   text-align: center;
-  border-top: 2px solid var(--color-primary);
-  /* Hint of pink */
-  border-bottom: 2px solid var(--color-accent);
-  /* Hint of cyan laser */
+  border-top: 3px solid var(--color-primary);
+  /* Racing red */
+  border-bottom: 3px solid var(--color-accent);
+  /* Piston Cup gold */
+  padding-bottom: 0;
 }
 
 .hero-image {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(255, 107, 158, 0.5);
+  box-shadow: 0 0 15px rgba(224, 27, 36, 0.5);
   display: block;
 }
 
 /* Shared Headings */
 h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
   margin-bottom: 20px;
   color: var(--color-primary);
-  text-shadow: 0 0 8px rgba(255, 107, 158, 0.4);
+  text-shadow: 0 0 8px rgba(224, 27, 36, 0.4);
 }
 
 /* Details Section */
@@ -241,7 +250,7 @@ h2 {
   margin-right: 16px;
   flex-shrink: 0;
   color: var(--color-primary);
-  box-shadow: 0 0 15px rgba(255, 107, 158, 0.3);
+  box-shadow: 0 0 15px rgba(224, 27, 36, 0.3);
 }
 
 .detail-item .icon svg {
@@ -293,13 +302,22 @@ label {
 
 .food-note {
   font-size: 0.8rem;
-  color: var(--color-accent);
+  color: var(--color-text-muted);
   margin-bottom: 10px;
-  line-height: 1.4;
-  background: rgba(0, 245, 212, 0.1);
-  padding: 8px 12px;
-  border-left: 2px solid var(--color-accent);
+  line-height: 1.5;
+  background: rgba(255, 210, 63, 0.1);
+  padding: 10px 12px;
+  border-left: 3px solid var(--color-accent);
   border-radius: 4px;
+}
+
+.food-note p+p {
+  margin-top: 6px;
+}
+
+.food-note strong {
+  color: var(--color-accent);
+  font-weight: 600;
 }
 
 input,
@@ -339,7 +357,7 @@ select:focus,
 textarea:focus {
   border-color: var(--color-primary);
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 10px rgba(255, 107, 158, 0.2);
+  box-shadow: 0 0 10px rgba(224, 27, 36, 0.2);
 }
 
 /* Fix option text color for mobile selects */
@@ -359,7 +377,7 @@ option {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(255, 107, 158, 0.4);
+  box-shadow: 0 4px 15px rgba(224, 27, 36, 0.4);
   transition: all 0.3s ease;
   margin-top: 10px;
   position: relative;
@@ -380,7 +398,7 @@ option {
 
 .glow-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 107, 158, 0.6);
+  box-shadow: 0 6px 20px rgba(224, 27, 36, 0.6);
 }
 
 .glow-btn:hover::after {
@@ -398,7 +416,7 @@ option {
 .form-message {
   text-align: center;
   padding: 20px;
-  background: rgba(0, 245, 212, 0.1);
+  background: rgba(255, 210, 63, 0.1);
   border: 1px solid var(--color-accent);
   border-radius: 12px;
   color: var(--color-accent);
@@ -417,7 +435,7 @@ option {
   font-size: 1.6rem;
   margin-bottom: 12px;
   color: var(--color-accent);
-  text-shadow: 0 0 10px rgba(0, 245, 212, 0.4);
+  text-shadow: 0 0 10px rgba(255, 210, 63, 0.4);
 }
 
 .gallery-banner p {
@@ -445,7 +463,7 @@ option {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(16, 0, 43, 0.85);
+  background: rgba(11, 13, 16, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   display: flex;
@@ -463,7 +481,7 @@ option {
   padding: 30px;
   position: relative;
   border: 1px solid var(--color-primary);
-  box-shadow: 0 0 30px rgba(255, 107, 158, 0.3);
+  box-shadow: 0 0 30px rgba(224, 27, 36, 0.3);
 }
 
 .modal-header h2 {
@@ -526,7 +544,7 @@ option {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(16, 0, 43, 0.95);
+  background: rgba(11, 13, 16, 0.95);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   display: flex;
@@ -548,7 +566,7 @@ option {
   max-width: 100%;
   max-height: 80vh;
   border-radius: 12px;
-  box-shadow: 0 0 30px rgba(255, 107, 158, 0.5);
+  box-shadow: 0 0 30px rgba(224, 27, 36, 0.5);
   border: 2px solid var(--glass-border);
   object-fit: contain;
 }
@@ -599,7 +617,7 @@ option {
 .lightbox-next:hover {
   background: var(--color-primary);
   border-color: var(--color-primary);
-  box-shadow: 0 0 20px rgba(255, 107, 158, 0.6);
+  box-shadow: 0 0 20px rgba(224, 27, 36, 0.6);
   transform: scale(1.1);
 }
 
@@ -627,5 +645,78 @@ option {
   
   .lightbox-prev:hover, .lightbox-next:hover {
     transform: scale(1.1);
+  }
+}
+
+/* ---- Cars / Piston Cup additions ---- */
+
+/* Asphalt lane markings drifting up the background */
+.background-animation::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.07) 0px,
+      rgba(255, 255, 255, 0.07) 60px,
+      transparent 60px,
+      transparent 140px);
+  background-size: 6px 200px;
+  background-repeat: repeat-y;
+  background-position: 12% 0, 88% 0;
+  opacity: 0.5;
+  animation: laneScroll 2.5s linear infinite;
+}
+
+@keyframes laneScroll {
+  to {
+    background-position-y: 200px;
+  }
+}
+
+/* Chequered finish line under the hero poster */
+.checkered-strip {
+  height: 18px;
+  margin: 16px -24px 0;
+  background-image:
+    linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%),
+    linear-gradient(45deg, #fff 25%, transparent 25%, transparent 75%, #fff 75%);
+  background-color: #14171c;
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+}
+
+/* Hero poster sits flush and keeps its own rounded corners */
+.hero-image {
+  border: 2px solid var(--color-chrome);
+}
+
+/* Detail icons get a chrome rim like a wheel hub */
+.detail-item .icon {
+  border: 2px solid var(--color-chrome);
+}
+
+/* Race-red gradient on the RSVP button */
+.glow-btn {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark) 60%, var(--color-secondary));
+  border: 2px solid var(--color-chrome);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .background-animation,
+  .background-animation::after,
+  .shine-effect,
+  .glass-panel {
+    animation: none !important;
+  }
+
+  .glass-panel {
+    opacity: 1;
+    transform: none;
   }
 }
